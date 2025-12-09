@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-vscode.live-server",
+    "george-alisson.html-preview-vscode",
+    "hdg.live-html-previewer",
+    "wallabyjs.console-ninja",
+    "wallabyjs.quokka-vscode",
+    "formulahendry.code-runner",
+    "chakrounanas.turbo-console-log"
+  ]
+}
