@@ -20,7 +20,7 @@
     --link: 500 .875rem/1rem var(--ff);
 }
 
-* {
+*, *:after, *:before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -94,7 +94,7 @@ form button {
     border-radius: .75rem;
     border: none;
     background-color: var(--color-brand);
-    color: #fff;
+    color: var(--bg-secondary);
     font: var(--label);
     cursor: pointer;
     transition: all .3s;
@@ -102,4 +102,99 @@ form button {
 
 form button:hover {
     background-color: var(--color-brand-hover);
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    margin-top: 2.5rem;
+}
+
+.card {
+    width: 100%;
+    background-color: var(--bg-secondary);
+    padding: .75rem;
+    border-radius: .75rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    position: relative;
+}
+
+.checkbox > input {
+    appearance: none;
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--border-primary);
+    border-radius: .375rem;
+}
+
+.checkbox > input:hover {
+    border: 2px solid var(--border-hover);
+}
+
+.checkbox > input:checked {
+    background-color: var(--color-brand);
+    border: none;
+}
+
+.checkbox > input:checked::before {
+    content: "✔";
+    font-size: 1rem;
+    position: absolute;
+    color: var(--bg-secondary);
+    top: 5%;
+    left: 1%;
+}
+
+.checkbox > label {
+    font: var(--text);
+    color: var(--content-secondary)
+}
+
+footer {
+    background-color: var(--color-danger);
+    margin-top: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem;
+    width: 100%;
+    border-radius: .75rem;
+}
+
+.info-remove {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.info-remove > p {
+    color: var(--bg-secondary);
+    font: var(--label)
+}
+
+.remove-icon {
+    background-color: var(--bg-secondary);
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-icon > span {
+    font: var(--link);
+    color: var(--color-danger)
 }
