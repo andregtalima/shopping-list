@@ -49,6 +49,10 @@ main {
     padding-top: 5rem;
 }
 
+.logo {
+    display: none;
+}
+
 .back {
     display: flex;
     align-items: center;
@@ -156,7 +160,7 @@ form button:hover {
     left: 1%;
 }
 
-.checkbox > label {
+.label {
     font: var(--text);
     color: var(--content-secondary)
 }
@@ -208,4 +212,25 @@ footer {
 .remove-icon > span {
     font: var(--link);
     color: var(--color-danger)
+}
+
+@media (width >= 50rem) {
+    body {
+        max-width: 40rem;
+    }
+
+    .logo {
+        display: block;
+        margin-top: 1.56rem;
+        text-align: center;
+    }
+
+    form {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    form input {
+        width: 70%;
+    }
 }

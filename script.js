@@ -20,35 +20,46 @@ form.addEventListener('submit', (event) => {
 // Criando uma função para adicionar cards
 function addCads() {
     let text = inputText.value.trim();
+    if (!text) return
 
-    if (text === '') return
+    const card = document.createElement('div');
+    card.classList.add('card');
 
-    let newCards = document.createElement('div');
+    const checkboxWrapper = document.createElement('div');
+    checkboxWrapper.classList.add('checkbox');
 
-    newCards.innerHTML = `
-        <div class="card">
-            <div class="checkbox">
-                <input type="checkbox" name="item">
-                <label>${text}</label>
-            </div>
-            <img src="./assets/trash.svg" alt="">
-        </div>
-    `
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = `item-${Date.now()}`;
 
-    cards.appendChild(newCards);
+    const label = document.createElement('label');
+    label.classList.add('label');
+    label.textContent = text;
+    label.setAttribute('for', checkbox.id);
 
-    newCards.querySelector('.card img').addEventListener('click', () => {
-        const checkbox = newCards.querySelector('input[type="checkbox"]');
+    const trash = document.createElement('img');
+    trash.src = './assets/trash.svg';
+    trash.alt = 'Remove item'
 
-        if (!checkbox.checked) {
-            alert("Marque o item da lista que deseja remover.");
-            return;
-        } 
-        newCards.remove()
-        showRemoveMessage()
-    })
+    checkboxWrapper.appendChild(checkbox);
+    checkboxWrapper.appendChild(label);
+
+    card.appendChild(checkboxWrapper);
+    card.appendChild(trash);
+    
+    cards.appendChild(card);
 
     inputText.value = '';
+
+    trash.addEventListener('click', () => {
+        if (!checkbox.checked) {
+            alert("Marque o item da lista que deseja remover.");
+            return
+        }
+
+        card.remove();
+        showRemoveMessage();
+    })
 }
 
 function showRemoveMessage() {
