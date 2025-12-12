@@ -119,7 +119,7 @@ form button:hover {
 
     display: flex;
     align-items: center;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 .checkbox {
@@ -170,6 +170,17 @@ footer {
     padding: .75rem;
     width: 100%;
     border-radius: .75rem;
+
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: .3s ease;
+    pointer-events: none;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .info-remove {
